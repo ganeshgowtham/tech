@@ -19,3 +19,8 @@ for row in sheet.iter_rows(values_only=True):
 
 # Close the Excel workbook when you're done
 workbook.close()
+
+
+https://github.com/Chainlit/cookbook/blob/main/openai-functions-streaming/app.py loading image
+https://github.com/Chainlit/cookbook/blob/main/confirm-action/app.py regenrate button
+https://github.com/Chainlit/cookbook/blob/main/pdf-qa/app.py train model from app
