@@ -1,0 +1,21 @@
+import openpyxl
+
+# Load the Excel workbook
+workbook = openpyxl.load_workbook('C:\\Users\\ganes\\Downloads\\log\\data-excel.xlsx')
+
+# Choose the specific sheet you want to read (replace 'Sheet1' with your sheet name)
+sheet = workbook['Sheet1']
+
+# Define the fixed column indices you want to extract
+column_indices = [1, 2, 3, 4, 5]  # Replace with the actual column indices you need
+
+# Iterate through rows and extract data
+for row in sheet.iter_rows(values_only=True):
+    # Access the specific columns using column_indices
+    extracted_data = [row[i - 1] for i in column_indices]
+
+    # Do something with the extracted data (e.g., print it)
+    print(extracted_data[4])
+
+# Close the Excel workbook when you're done
+workbook.close()
