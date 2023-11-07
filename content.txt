@@ -1,126 +1,71 @@
-Wells Fargo is primarily known for its banking and financial services, which include offerings such as:
+import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
+import org.apache.flink.streaming.util.serialization.JSONKeyValueDeserializationSchema;
+import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
+import org.apache.flink.streaming.util.serialization.JSONKeyValueDeserializationSchema;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.streaming.api.TimeCharacteristic;
 
-Banking Services: Wells Fargo provides a wide range of banking services, including savings and checking accounts, personal and business loans, credit cards, and investment services.
+import org.apache.flink.streaming.api.TimeCharacteristic;
 
-Mortgages: The bank offers mortgage solutions, including home purchase loans, refinancing options, and support for first-time homebuyers.
+public class KafkaToMongoFlinkJob {
 
-Investment Services: Wells Fargo offers investment and wealth management services, including financial planning, retirement planning, and brokerage accounts.
+    public static void main(String[] args) throws Exception {
+        // Set up the execution environment
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-Online and Mobile Banking: Customers can access their accounts, make transactions, and manage their finances through online and mobile banking platforms.
+        // Set the time characteristic to EventTime or ProcessingTime based on your use case
+        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
-Insurance: The bank provides various insurance products, such as auto insurance, home insurance, and renters insurance.
+        // Define Kafka consumer properties
+        Properties kafkaProps = new Properties();
+        kafkaProps.setProperty("bootstrap.servers", "your_kafka_brokers");
+        kafkaProps.setProperty("group.id", "flink-consumer-group");
 
-Small Business Services: Wells Fargo offers financial services tailored to small businesses, including business loans, merchant services, and business banking.
+        // Create a Flink Kafka consumer
+        FlinkKafkaConsumer<String> kafkaConsumer = new FlinkKafkaConsumer<>(
+                "your_kafka_topic",  // Kafka topic to consume from
+                new SimpleStringSchema(),  // Deserialization schema
+                kafkaProps);
 
-Commercial Banking: For larger businesses and corporations, Wells Fargo provides a range of commercial banking services, including treasury management, corporate lending, and international banking.
+        // Create a Kafka producer to persist data to another topic if needed
+        Properties producerProps = new Properties();
+        producerProps.setProperty("bootstrap.servers", "your_kafka_brokers");
 
-Wealth Management: Wealthier clients can access private banking and wealth management services, including estate planning and investment advisory.
+        // Create a Flink MongoDB sink
+        FlinkMongoDBOutputFormat<String> mongoDBSink = FlinkMongoDBOutputFormat.buildMongoDBOutputFormat()
+                .setHost("your_mongo_host")
+                .setPort(27017)
+                .setDatabaseName("your_database")
+                .setCollectionName("your_collection")
+                .setField(DeserializationSchema.JSON_DESERIALIZER)
+                .finish();
 
-Checking and Savings Accounts:
+        // Create a data stream from the Kafka source
+        DataStream<String> kafkaStream = env.addSource(kafkaConsumer);
 
-Wells Fargo offers various types of checking and savings accounts, including basic accounts, interest-bearing accounts, and accounts with specific features like overdraft protection and online banking.
-Credit Cards:
+        // Define your filtering logic using a MapFunction
+        DataStream<String> filteredStream = kafkaStream
+                .map(new MapFunction<String, String>() {
+                    @Override
+                    public String map(String value) throws Exception {
+                        // Implement your filtering logic here
+                        // Return null to drop events or return the event to keep it
+                        // For example: if (yourCondition) return value;
+                        // else return null;
+                    }
+                })
+                .filter(event -> event != null);
 
-Wells Fargo provides a selection of credit cards with different features, rewards programs, and credit limits to cater to various consumer needs.
-Home Loans and Mortgages:
+        // Add the filtered events to the MongoDB sink
+        filteredStream.writeUsingOutputFormat(mongoDBSink);
 
-Consumers can apply for home loans and mortgages through Wells Fargo for purchasing a new home or refinancing an existing one. They offer fixed-rate and adjustable-rate mortgage options.
-Auto Loans:
-
-Wells Fargo offers auto loans for financing the purchase of new or used vehicles. These loans can help consumers with vehicle purchases and financing.
-Personal Loans:
-
-Personal loans can be obtained from Wells Fargo for various purposes such as debt consolidation, home improvement, or unexpected expenses.
-Investment Services:
-
-Wells Fargo Advisors provides investment and wealth management services, including financial planning, retirement planning, and assistance with investment portfolios.
-Online and Mobile Banking:
-
-Wells Fargo offers online and mobile banking platforms, allowing consumers to manage their accounts, pay bills, transfer funds, and monitor their financial activities conveniently.
-Credit Counseling and Education:
-
-The bank offers resources and guidance on financial literacy and credit management to help consumers make informed financial decisions.
-Insurance Products:
-
-Wells Fargo offers various insurance products, including auto insurance, home insurance, renters insurance, and life insurance, to help consumers protect their assets and loved ones.
-Student Loans:
-
-Wells Fargo provides student loan options for those pursuing higher education, including undergraduate, graduate, and professional school loans.
-Small Business Banking:
-
-Wells Fargo offers a suite of banking and financial services tailored to small businesses, including business checking accounts, loans, and merchant services.
-Financial Planning and Advisory Services:
-
-Consumers can access financial planning services and advisory assistance to help them achieve their financial goals and plan for retirement.
-Credit Score and Monitoring:
-
-Wells Fargo provides tools and resources to help consumers monitor their credit scores and understand their credit reports.
-
-Credit Cards:
-
-Wells Fargo Propel American Express® Card:
-
-A rewards credit card that offers points for various purchases, including dining, travel, and streaming services. It often includes a welcome bonus.
-Wells Fargo Cash Wise Visa® Card:
-
-A cashback credit card that provides cash rewards for everyday spending, along with a cashback bonus for new cardholders.
-Wells Fargo Platinum Card:
-
-A credit card designed for those looking for low introductory APR offers, including balance transfers and purchases.
-Wells Fargo Visa Signature® Card:
-
-A card that offers travel benefits and rewards, including bonus points for air travel and a unique concierge service.
-Secured Credit Cards:
-
-Wells Fargo also offers secured credit cards, which can be a good option for individuals looking to establish or rebuild their credit.
-Debit Cards:
-
-Wells Fargo Debit Card:
-
-A standard debit card linked to your Wells Fargo checking account, allowing you to make purchases and withdraw cash from ATMs.
-Wells Fargo Business Debit Card:
-
-Designed for business customers, this debit card is linked to a business checking account and can be used for business expenses.
-Wells Fargo Campus Card:
-
-A debit card option for college students, often linked to a Wells Fargo Student Checking account. It may come with features tailored to students' needs.
-
-Steven D. Black, Chair, Wells Fargo & Company
-Mark A. Chancy, Retired Vice Chair and Co-Chief Operating Officer, SunTrust Banks, Inc.
-Celeste A. Clark, Principal, Abraham Clark Consulting, LLC, and Retired Senior Vice President, Global Public Policy and External Relations and Chief Sustainability Officer, Kellogg Company
-Theodore F. Craver, Jr., Retired Chair, President and CEO, Edison International
-Richard K. Davis, Retired President and CEO, Make-A-Wish America
-Wayne M. Hewett, Senior Advisor, Permira, and Chair, Cambrex Corporation
-CeCelia "CeCe" G. Morken, Retired CEO and President, Headspace, Inc.
-Maria R. Morris, Retired Executive Vice President and Head of Global Employee Benefits business, MetLife, Inc.
-Felicia F. Norwood, Executive Vice President and President, Government Business Division, Elevance Health, Inc.
-Richard B. Payne, Jr., Retired Vice Chair, Wholesale Banking, U.S. Bancorp
-Ronald L. Sargent, Retired Chair and CEO, Staples, Inc.
-Charles W. Scharf, Chief Executive Officer and President
-Suzanne M. Vautrinot, President, Kilovolt Consulting, Inc. and Major General, 
-
-
-Certainly, here's a brief overview of the potential usage of the mentioned models:
-
-1. **XLM-Roberta-Base:**
-   - **Multilingual NLP Tasks:** XLM-Roberta-Base is effective for a wide range of multilingual natural language processing tasks, including text classification, language translation, and sentiment analysis.
-   - **Cross-Lingual Tasks:** It excels in handling tasks that involve multiple languages, making it valuable for applications where language diversity is a concern.
-
-2. **NQ-DistilBERT-Base:**
-   - **Question Answering:** NQ-DistilBERT-Base is specialized for question-answering tasks, making it suitable for applications like chatbots, customer support, and search engines where users ask questions and seek specific answers.
-   - **Information Retrieval:** It can be used for information retrieval tasks, such as finding relevant documents or passages in a large text corpus.
-
-3. **Bert-Extractive-Summarizer:**
-   - **Text Summarization:** This model is designed for extractive text summarization, where it identifies and extracts key sentences or phrases from a document to create a concise summary.
-   - **Content Curation:** It can be used to automate content curation by summarizing news articles, research papers, or long documents.
-
-4. **Bert-EN-Uncased:**
-   - **English Language Tasks:** This model is particularly suited for English language natural language processing tasks, such as sentiment analysis, text classification, and named entity recognition.
-   - **Chatbots and Virtual Assistants:** It can serve as a foundation for building English-language chatbots and virtual assistants.
-
-5. **BERT-Large-Uncased-Whole-Word-Masking-SQuAD2:**
-   - **Question Answering (SQuAD 2.0):** BERT models fine-tuned on SQuAD (Stanford Question Answering Dataset) are specifically designed for question-answering tasks. The "whole-word masking" variant can handle questions and answers more effectively.
-   - **Information Retrieval and QA Systems:** It's suitable for building information retrieval systems and question-answering applications, including chatbots and virtual assistants.
-
-These models are versatile and can be fine-tuned for specific applications or used in a variety of natural language processing tasks, depending on your project's requirements. Fine-tuning involves training the model on a task-specific dataset to optimize its performance for a particular application.
-
+        // Execute the Flink job
+        env.execute("Kafka to MongoDB Flink Job");
+    }
+}
