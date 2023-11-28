@@ -1,1 +1,3 @@
 The predictive aspect of the problem statement focuses on forecasting when the company is expected to achieve its sustainability goals and the amount of time required to reach those goals. This implies the need for a predictive model that takes into account historical performance data, current sustainability metrics, and potentially external factors influencing sustainability efforts.
+
+These indices could cover a range of environmental, social, and governance (ESG) factors
