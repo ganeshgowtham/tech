@@ -1,15 +1,54 @@
-The predictive aspect of the problem statement focuses on forecasting when the company is expected to achieve its sustainability goals and the amount of time required to reach those goals. This implies the need for a predictive model that takes into account historical performance data, current sustainability metrics, and potentially external factors influencing sustainability efforts.
+Debtor (Originator)
+The Debtor refers to the individual or entity initiating the payment. They are the ones sending money as part of a financial transaction. For instance, if you pay your utility bills online, you are the Debtor.
 
-These indices could cover a range of environmental, social, and governance (ESG) factors
+Example: John, who pays his monthly rent online, is the Debtor.
 
-he forecast should not only indicate when the goals will be achieved but also quantify how much time is needed. This aspect addresses the temporal dimension of the problem, specifying the duration required for the company to meet its sustainability objectives.
+Debtor Agent (Originator's Financial Institution)
+The Debtor Agent is the financial institution that manages the Debtor's account and facilitates the transfer of funds on behalf of the Debtor. It serves as an intermediary between the Debtor and the broader financial system.
 
+Example: ABC Bank, where John has a checking account, acts as the Debtor Agent when John initiates an online payment.
 
-Methodology:
+Instructing Agent
+The Instructing Agent is the entity responsible for sending the payment instruction across the financial network. This can be the same as the Debtor Agent, especially in cases where the financial institution handling the Debtor's account also manages the payment instructions.
 
-The methodology for forecasting may involve data analysis, statistical modeling, or potentially machine learning algorithms. Historical data on sustainability metrics across different quarters would likely play a crucial role in training the predictive model.
+Example: If ABC Bank, as the Debtor Agent, directly sends payment instructions to another financial institution, it also acts as the Instructing Agent.
 
+Ultimate Debtor
+The Ultimate Debtor is the person or entity on whose behalf the Debtor is making the payment. This comes into play when the Debtor is acting as a representative or a central authority making payments on behalf of multiple entities.
 
-Strategic Decision-Making:
+Example: A corporate treasury center making payments on behalf of all branches of a company.
 
-The overarching goal is likely to inform strategic decision-making within the company. Understanding when sustainability goals can be achieved and the required timeline allows for better planning and resource allocation.
+Initiating Party
+The Initiating Party is the entity that initiates the payment on behalf of the Debtor. It could be a specialized payments processing unit within a large corporation, such as a payments factory.
+
+Example: The payments factory of a multinational corporation submits credit transfer messages on behalf of the corporation.
+
+Previous Instructing Agent
+The Previous Instructing Agent refers to financial institutions involved in processing the payment instruction after the Debtor Agent and before the Instructing Agent. These are intermediaries in the payment processing chain.
+
+Example: If the payment involves multiple banks in the processing chain before reaching the Instructing Agent, these banks are the Previous Instructing Agents.
+
+Creditor (Beneficiary)
+The Creditor is the person or entity to whom the payment is directed. They receive the funds as part of the financial transaction.
+
+Example: A vendor receiving payment for goods or services is the Creditor.
+
+Creditor Agent (Beneficiary's Financial Institution)
+The Creditor Agent is the financial institution that manages the Creditor's account and facilitates the receipt of funds on behalf of the Creditor.
+
+Example: XYZ Bank, where the vendor has an account, acts as the Creditor Agent when the vendor receives payment.
+
+Instructed Agent
+The Instructed Agent is the entity that receives the customer credit transfer. Similar to the Instructing Agent, the Creditor Agent and Instructed Agent may be the same financial institution.
+
+Example: XYZ Bank, as the Creditor Agent, may directly receive payment instructions and act as the Instructed Agent.
+
+Ultimate Creditor
+The Ultimate Creditor is the person or entity on whose behalf the Creditor is receiving the payment. This comes into play when the Creditor is receiving funds on behalf of someone else.
+
+Example: A corporate branch receiving payments through its head office.
+
+Intermediary Agent
+Intermediary Agents are financial institutions involved in processing the payment instruction after the Instructed Agent and before reaching the Creditor Agent. They serve as intermediaries in the payment processing chain.
+
+Example: If there are additional banks involved in processing the payment before it reaches the Creditor Agent, these banks act as Intermediary Agents.
