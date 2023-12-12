@@ -1,54 +1,10 @@
-Debtor (Originator)
-The Debtor refers to the individual or entity initiating the payment. They are the ones sending money as part of a financial transaction. For instance, if you pay your utility bills online, you are the Debtor.
+Overview
+The Reusable Generic Table Component is a powerful and flexible React component designed to facilitate the display and management of tabular data from the XXX API. This component offers customizable features for "basic search," "advanced search," and "inline filtering," allowing users to tailor their search experience. It seamlessly connects to the XXX API by passing PING tokens in the HTTP header. Additionally, the component supports managed search options, enabling users to store and retrieve frequently used searches.
 
-Example: John, who pays his monthly rent online, is the Debtor.
-
-Debtor Agent (Originator's Financial Institution)
-The Debtor Agent is the financial institution that manages the Debtor's account and facilitates the transfer of funds on behalf of the Debtor. It serves as an intermediary between the Debtor and the broader financial system.
-
-Example: ABC Bank, where John has a checking account, acts as the Debtor Agent when John initiates an online payment.
-
-Instructing Agent
-The Instructing Agent is the entity responsible for sending the payment instruction across the financial network. This can be the same as the Debtor Agent, especially in cases where the financial institution handling the Debtor's account also manages the payment instructions.
-
-Example: If ABC Bank, as the Debtor Agent, directly sends payment instructions to another financial institution, it also acts as the Instructing Agent.
-
-Ultimate Debtor
-The Ultimate Debtor is the person or entity on whose behalf the Debtor is making the payment. This comes into play when the Debtor is acting as a representative or a central authority making payments on behalf of multiple entities.
-
-Example: A corporate treasury center making payments on behalf of all branches of a company.
-
-Initiating Party
-The Initiating Party is the entity that initiates the payment on behalf of the Debtor. It could be a specialized payments processing unit within a large corporation, such as a payments factory.
-
-Example: The payments factory of a multinational corporation submits credit transfer messages on behalf of the corporation.
-
-Previous Instructing Agent
-The Previous Instructing Agent refers to financial institutions involved in processing the payment instruction after the Debtor Agent and before the Instructing Agent. These are intermediaries in the payment processing chain.
-
-Example: If the payment involves multiple banks in the processing chain before reaching the Instructing Agent, these banks are the Previous Instructing Agents.
-
-Creditor (Beneficiary)
-The Creditor is the person or entity to whom the payment is directed. They receive the funds as part of the financial transaction.
-
-Example: A vendor receiving payment for goods or services is the Creditor.
-
-Creditor Agent (Beneficiary's Financial Institution)
-The Creditor Agent is the financial institution that manages the Creditor's account and facilitates the receipt of funds on behalf of the Creditor.
-
-Example: XYZ Bank, where the vendor has an account, acts as the Creditor Agent when the vendor receives payment.
-
-Instructed Agent
-The Instructed Agent is the entity that receives the customer credit transfer. Similar to the Instructing Agent, the Creditor Agent and Instructed Agent may be the same financial institution.
-
-Example: XYZ Bank, as the Creditor Agent, may directly receive payment instructions and act as the Instructed Agent.
-
-Ultimate Creditor
-The Ultimate Creditor is the person or entity on whose behalf the Creditor is receiving the payment. This comes into play when the Creditor is receiving funds on behalf of someone else.
-
-Example: A corporate branch receiving payments through its head office.
-
-Intermediary Agent
-Intermediary Agents are financial institutions involved in processing the payment instruction after the Instructed Agent and before reaching the Creditor Agent. They serve as intermediaries in the payment processing chain.
-
-Example: If there are additional banks involved in processing the payment before it reaches the Creditor Agent, these banks act as Intermediary Agents.
+Key Features
+Basic Search: Customize the fields available for simple searches.
+Advanced Search: Tailor the advanced search interface based on specific requirements.
+Inline Filtering: Refine search results directly within the displayed table.
+Direct API Connection: Connect securely to the XXX API using PING tokens in the HTTP header.
+Customizable Fields: Adapt the table columns to match the desired data structure.
+Managed Search Options: Store and retrieve frequently used searches for efficiency.
