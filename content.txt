@@ -1,10 +1,103 @@
-Overview
-The Reusable Generic Table Component is a powerful and flexible React component designed to facilitate the display and management of tabular data from the XXX API. This component offers customizable features for "basic search," "advanced search," and "inline filtering," allowing users to tailor their search experience. It seamlessly connects to the XXX API by passing PING tokens in the HTTP header. Additionally, the component supports managed search options, enabling users to store and retrieve frequently used searches.
+Day 1-2: Introduction to Python
 
-Key Features
-Basic Search: Customize the fields available for simple searches.
-Advanced Search: Tailor the advanced search interface based on specific requirements.
-Inline Filtering: Refine search results directly within the displayed table.
-Direct API Connection: Connect securely to the XXX API using PING tokens in the HTTP header.
-Customizable Fields: Adapt the table columns to match the desired data structure.
-Managed Search Options: Store and retrieve frequently used searches for efficiency.
+Learn the basics of Python syntax.
+Understand variables, data types, and basic operations.
+Explore control flow statements (if, else, loops).
+Write simple programs.
+Day 3-4: Functions and Modules
+
+Dive into functions and understand how to create and use them.
+Learn about modules and how to import them.
+Explore built-in modules like math and random.
+Day 5-6: Data Structures in Python
+
+Study lists, tuples, sets, and dictionaries.
+Understand common operations on each data structure.
+Learn about list comprehensions.
+Day 7-8: File Handling
+
+Explore reading and writing files in Python.
+Understand different file modes.
+Practice handling exceptions.
+Day 9-10: Object-Oriented Programming (OOP)
+
+Learn the basics of OOP in Python.
+Understand classes and objects.
+Practice inheritance and polymorphism.
+Day 11-12: NumPy
+
+Introduction to NumPy for numerical computing.
+Learn about arrays and basic operations.
+Understand broadcasting in NumPy.
+Day 13-14: Pandas
+
+Explore Pandas for data manipulation and analysis.
+Learn about Series and DataFrames.
+Practice reading and writing data.
+Day 15-16: Matplotlib and Seaborn
+
+Learn data visualization using Matplotlib and Seaborn.
+Create various types of plots.
+Understand customization and styling.
+Day 17-18: Scikit-Learn
+
+Introduction to Scikit-Learn for machine learning in Python.
+Explore supervised learning algorithms (e.g., linear regression, decision trees).
+Understand model evaluation and metrics.
+Day 19-20: Advanced Topics and Project
+
+Choose an introductory machine learning project.
+Explore more advanced Python topics like decorators and generators.
+Review and solidify your understanding through the project.
+
+Day 1-2: Introduction to Python
+
+Learn the basics of Python syntax.
+Understand variables, data types, and basic operations.
+Explore control flow statements (if, else, loops).
+Write simple programs.
+Day 3-4: Functions and Modules
+
+Dive into functions and understand how to create and use them.
+Learn about modules and how to import them.
+Explore built-in modules like math and random.
+Day 5-6: Data Structures in Python
+
+Study lists, tuples, sets, and dictionaries.
+Understand common operations on each data structure.
+Learn about list comprehensions.
+Day 7-8: File Handling
+
+Explore reading and writing files in Python.
+Understand different file modes.
+Practice handling exceptions.
+Day 9-10: Object-Oriented Programming (OOP)
+
+Learn the basics of OOP in Python.
+Understand classes and objects.
+Practice inheritance and polymorphism.
+Day 11-12: NumPy
+
+Introduction to NumPy for numerical computing.
+Learn about arrays and basic operations.
+Understand broadcasting in NumPy.
+Day 13-14: Pandas
+
+Explore Pandas for data manipulation and analysis.
+Learn about Series and DataFrames.
+Practice reading and writing data.
+Day 15-16: Matplotlib and Seaborn
+
+Learn data visualization using Matplotlib and Seaborn.
+Create various types of plots.
+Understand customization and styling.
+Day 17-18: Scikit-Learn
+
+Introduction to Scikit-Learn for machine learning in Python.
+Explore supervised learning algorithms (e.g., linear regression, decision trees).
+Understand model evaluation and metrics.
+Day 19-20: Advanced Topics and Project
+
+Choose an introductory machine learning project.
+Explore more advanced Python topics like decorators and generators.
+Review and solidify your understanding through the project.
