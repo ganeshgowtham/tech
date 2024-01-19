@@ -1,2 +1,12 @@
-Failed to fetch deployments quota information
-Please make sure you have 'Cognitive Services Usages Reader' role granted at the subscription level. This role provides the minimal access necessary to view quota usage across an Azure subscription.
+Reading
+https://azure.microsoft.com/en-in/products/
+
+Azure Portal
+Login : https://login.microsoftonline.com/
+https://portal.azure.com/signin/index/
+https://oai.azure.com/
+https://ml.azure.com
+
+Examples
+https://github.com/Azure-Samples
+https://learn.microsoft.com/
