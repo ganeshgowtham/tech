@@ -1,3 +1,97 @@
+
+import requests
+import time
+import os
+import threading
+
+def get_all_private_repos(org_name, token):
+    # GitHub API endpoint for fetching organization repositories
+    url = f'https://api.github.com/orgs/{org_name}/repos'
+
+    # Header with authorization token
+    headers = {
+        'Authorization': f'token {token}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+
+    # List to store repository names
+    repo_names = []
+
+    # Flag to indicate if there are more pages of results
+    has_next_page = True
+
+    # Iterate over pages of results
+    while has_next_page:
+        # Send a GET request to fetch repositories for the current page
+        response = requests.get(url, headers=headers)
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Parse JSON response
+            repos = response.json()
+            
+            # Iterate over repositories and add their names to the list
+            for repo in repos:
+                repo_names.append(repo['name'])
+
+            # Check if there are more pages of results
+            has_next_page = 'next' in response.links
+            if has_next_page:
+                # Update URL for the next page of results
+                url = response.links['next']['url']
+        else:
+            # Print an error message if the request was not successful
+            print(f'Error: Failed to retrieve repositories. Status code: {response.status_code}')
+            return
+
+    # Print all repository names
+    for name in repo_names:
+        print('https://github.com/Hackathon2024-March/'+name+'/archive/refs/heads/main.zip')
+        
+        file_path = f'download\{name}_main.zip'
+        if os.path.exists(file_path):
+            print(f'The file {file_path} exists.')
+        else:
+            print(f'The file {file_path} does not exist.')
+            print('https://github.com/Hackathon2024-March/'+name+'/archive/refs/heads/main.zip')
+            download_repo_zip(owner, name, token)
+            time.sleep(1)  # Add a delay of 15 seconds between each download
+
+def download_repo_zip(owner, repo_name, token=None):
+    # GitHub API endpoint for downloading a repository's ZIP archive
+    url = f'https://api.github.com/repos/{owner}/{repo_name}/zipball/main'
+
+    # Header with accept and authorization token if provided
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    if token:
+        headers['Authorization'] = f'token {token}'
+
+    # Send a GET request to download the repository ZIP archive
+    response = requests.get(url, headers=headers)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Write the content to a ZIP file
+        with open(f'download\{repo_name}_main.zip', 'wb') as f:
+            f.write(response.content)
+        print(f'Repository {owner}/{repo_name} main branch downloaded successfully.')
+    else:
+        # Print an error message if the request was not successful
+        print(f'Error: Failed to download repository {owner}/{repo_name} main branch. Status code: {response.status_code}')
+
+# Replace 'owner', 'repo_name', and 'token' with the appropriate         
+
+# Replace 'your_organization_name' and 'your_personal_access_token' with your organization's name and personal access token
+org_name = 'Hackathon2024-March'
+token = 'XXXX'
+owner = 'Hackathon2024-March'
+
+# Call the function to get all private repositories
+get_all_private_repos(org_name, token)
+
+
+
+
 Certainly! Here's a list of topics that could be covered in a session focusing on a case study about improving performance by identifying bottleneck points in code using various profiling techniques:
 
 1. Introduction to Performance Optimization:
