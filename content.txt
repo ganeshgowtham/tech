@@ -1,209 +1,385 @@
+Sure, here are 30 multiple-choice questions with answers:
 
-import requests
-import time
-import os
-import threading
+1. What does JSX stand for in ReactJS?
+   a) JavaScript XML
+   b) XML JavaScript
+   c) JavaScript Extension
+   d) Extended JavaScript
+   **Answer: a) JavaScript XML**
 
-def get_all_private_repos(org_name, token):
-    # GitHub API endpoint for fetching organization repositories
-    url = f'https://api.github.com/orgs/{org_name}/repos'
+2. Which of the following is not a valid way to define a component in ReactJS?
+   a) Function Component
+   b) Class Component
+   c) Arrow Component
+   d) Pure Component
+   **Answer: c) Arrow Component**
 
-    # Header with authorization token
-    headers = {
-        'Authorization': f'token {token}',
-        'Accept': 'application/vnd.github.v3+json'
-    }
+3. What is the purpose of TypeScript in a React project?
+   a) To add static typing to JavaScript
+   b) To improve runtime performance
+   c) To provide a new rendering engine
+   d) To enhance CSS styling
+   **Answer: a) To add static typing to JavaScript**
 
-    # List to store repository names
-    repo_names = []
+4. In TypeScript, what keyword is used to define a type alias?
+   a) typedef
+   b) type
+   c) alias
+   d) define
+   **Answer: b) type**
 
-    # Flag to indicate if there are more pages of results
-    has_next_page = True
+5. Which of the following is true about Redux?
+   a) It is a database management system
+   b) It is a JavaScript library for managing application state
+   c) It is used for routing in React applications
+   d) It is mainly used for styling components
+   **Answer: b) It is a JavaScript library for managing application state**
 
-    # Iterate over pages of results
-    while has_next_page:
-        # Send a GET request to fetch repositories for the current page
-        response = requests.get(url, headers=headers)
+6. What is the purpose of the 'connect' function in Redux?
+   a) To define actions
+   b) To define reducers
+   c) To connect React components to the Redux store
+   d) To create middleware
+   **Answer: c) To connect React components to the Redux store**
 
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Parse JSON response
-            repos = response.json()
-            
-            # Iterate over repositories and add their names to the list
-            for repo in repos:
-                repo_names.append(repo['name'])
+7. In ES6, what does the 'spread operator' (...) do?
+   a) Combines two arrays into one
+   b) Splits a string into an array of characters
+   c) Allows an iterable to expand in places where multiple arguments are expected
+   d) Generates a range of numbers
+   **Answer: c) Allows an iterable to expand in places where multiple arguments are expected**
 
-            # Check if there are more pages of results
-            has_next_page = 'next' in response.links
-            if has_next_page:
-                # Update URL for the next page of results
-                url = response.links['next']['url']
-        else:
-            # Print an error message if the request was not successful
-            print(f'Error: Failed to retrieve repositories. Status code: {response.status_code}')
-            return
+8. Which ES6 feature is used to destructure objects or arrays?
+   a) Spread operator
+   b) Destructuring assignment
+   c) Object spread
+   d) Object shorthand
+   **Answer: b) Destructuring assignment**
 
-    # Print all repository names
-    for name in repo_names:
-        print('https://github.com/Hackathon2024-March/'+name+'/archive/refs/heads/main.zip')
-        
-        file_path = f'download\{name}_main.zip'
-        if os.path.exists(file_path):
-            print(f'The file {file_path} exists.')
-        else:
-            print(f'The file {file_path} does not exist.')
-            print('https://github.com/Hackathon2024-March/'+name+'/archive/refs/heads/main.zip')
-            download_repo_zip(owner, name, token)
-            time.sleep(1)  # Add a delay of 15 seconds between each download
+9. What is the purpose of the 'map' function in JavaScript?
+   a) To modify the original array
+   b) To create a new array by applying a function to each element of the original array
+   c) To remove elements from an array
+   d) To concatenate two arrays
+   **Answer: b) To create a new array by applying a function to each element of the original array**
 
-def download_repo_zip(owner, repo_name, token=None):
-    # GitHub API endpoint for downloading a repository's ZIP archive
-    url = f'https://api.github.com/repos/{owner}/{repo_name}/zipball/main'
+10. Which of the following is a correct way to import a module in ES6?
+    a) import { module } from 'module.js'
+    b) require('module')
+    c) include('module.js')
+    d) import module from 'module'
+    **Answer: a) import { module } from 'module.js'**
 
-    # Header with accept and authorization token if provided
-    headers = {'Accept': 'application/vnd.github.v3+json'}
-    if token:
-        headers['Authorization'] = f'token {token}'
+11. What is the purpose of the 'useState' hook in React?
+    a) To fetch data from an API
+    b) To manage state in functional components
+    c) To define global state variables
+    d) To handle asynchronous operations
+    **Answer: b) To manage state in functional components**
 
-    # Send a GET request to download the repository ZIP archive
-    response = requests.get(url, headers=headers)
+12. Which statement is true about arrow functions in ES6?
+    a) They have their own 'this' context
+    b) They cannot be used as methods in objects
+    c) They are always anonymous
+    d) They do not support default parameter values
+    **Answer: a) They have their own 'this' context**
 
-    # Check if the request was successful (status code 200)
-    if response.status_code == 200:
-        # Write the content to a ZIP file
-        with open(f'download\{repo_name}_main.zip', 'wb') as f:
-            f.write(response.content)
-        print(f'Repository {owner}/{repo_name} main branch downloaded successfully.')
-    else:
-        # Print an error message if the request was not successful
-        print(f'Error: Failed to download repository {owner}/{repo_name} main branch. Status code: {response.status_code}')
+13. What does Redux middleware do?
+    a) It changes the state of the Redux store directly
+    b) It provides a way to interact with actions before they reach the reducer
+    c) It is responsible for rendering React components
+    d) It manages routing in Redux applications
+    **Answer: b) It provides a way to interact with actions before they reach the reducer**
 
-# Replace 'owner', 'repo_name', and 'token' with the appropriate         
+14. In TypeScript, how can you define an optional property in an interface?
+    a) Using the 'optional' keyword
+    b) By adding a question mark (?) after the property name
+    c) By wrapping the property in square brackets
+    d) By using the 'Nullable' type
+    **Answer: b) By adding a question mark (?) after the property name**
 
-# Replace 'your_organization_name' and 'your_personal_access_token' with your organization's name and personal access token
-org_name = 'Hackathon2024-March'
-token = 'XXXX'
-owner = 'Hackathon2024-March'
+15. What is the purpose of the 'useEffect' hook in React?
+    a) To perform side effects in functional components
+    b) To define custom hooks
+    c) To manage routing
+    d) To handle user authentication
+    **Answer: a) To perform side effects in functional components**
 
-# Call the function to get all private repositories
-get_all_private_repos(org_name, token)
+16. Which of the following is a correct way to define a Redux action?
+    a) { type: 'INCREMENT', payload: 1 }
+    b) [ type: 'INCREMENT', payload: 1 ]
+    c) action('INCREMENT', 1)
+    d) { action: 'INCREMENT', payload: 1 }
+    **Answer: a) { type: 'INCREMENT', payload: 1 }**
 
+17. What is the purpose of the 'async/await' keywords in JavaScript?
+    a) To define asynchronous functions
+    b) To execute functions synchronously
+    c) To handle exceptions in try-catch blocks
+    d) To define functions with variable arguments
+    **Answer: a) To define asynchronous functions**
 
+18. In React, how do you pass data from a parent component to a child component?
+    a) Using props
+    b) Using state
+    c) Using context
+    d) Using refs
+    **Answer: a) Using props**
 
+19. What is the purpose of the 'useReducer' hook in React?
+    a) To manage complex state logic
+    b) To fetch data from an API
+    c) To handle user authentication
+    d) To define custom hooks
+    **Answer: a) To manage complex state logic**
 
-Certainly! Here's a list of topics that could be covered in a session focusing on a case study about improving performance by identifying bottleneck points in code using various profiling techniques:
+20. Which of the following is a correct way to define a Redux reducer?
+    a) const reducer = (state, action) => { /* reducer logic */ }
+    b) function reducer(state, action) { /* reducer logic */ }
+    c) const reducer = { /* reducer logic */ }
+    d) class Reducer { /* reducer logic */ }
+    **Answer: a) const reducer = (state, action) => { /* reducer logic */ }**
 
-1. Introduction to Performance Optimization:
-   - Importance of optimizing code performance.
-   - Impact of performance bottlenecks on application efficiency.
+21. How do you define a default parameter value in an ES6 function?
+    a) By using the 'default' keyword
+    b) By assigning a value in the function parameters
+    c) By using the 'let' keyword
+    d) By using the 'optional' keyword
+    **Answer: b) By assigning a value in the function parameters**
 
-2. Overview of Profiling Techniques:
-   - CPU Profiling.
-   - Memory Profiling.
-   - I/O Profiling.
-   - Network Profiling.
+22. What is the purpose of the 'bind' method in JavaScript?
+    a) To attach event listeners to DOM elements
+    b) To create a new array with the results of calling a provided function on every element in the array
+    c) To bind a function to a specific context, so that 'this' refers to that context when the function is called
+    d) To concatenate two arrays
+    **Answer: c) To bind a function to a specific context,
+	
+	
+	
+	Sure, I'll create a mix of basic, intermediate, and complex questions covering various aspects of React, props, ES6, functional components, Axios, error boundaries, React events, imperative and reference, state, and hooks.
 
-3. Choosing the Right Profiling Tool:
-   - Comparison of various profiling tools available.
-   - Selection criteria based on programming language, platform, and type of application.
+**Basic:**
 
-4. Identifying Performance Bottlenecks:
-   - Understanding common performance bottlenecks (CPU, Memory, I/O, Network).
-   - Real-world examples of performance issues.
+1. What is React?
+   a) A JavaScript framework for building user interfaces
+   b) A programming language
+   c) A database management system
+   d) A server-side rendering engine
+   **Answer: a) A JavaScript framework for building user interfaces**
 
-5. Profiling Tools and Methodologies:
-   - Instrumentation-based profiling.
-   - Sampling-based profiling.
-   - Profiling in development vs. production environments.
+2. What are props in React?
+   a) Internal state of a component
+   b) Properties that are passed to a component
+   c) CSS styles applied to a component
+   d) Actions triggered by a component
+   **Answer: b) Properties that are passed to a component**
 
-6. Case Study: Improving Performance Through Profiling:
-   - Description of the application or system under study.
-   - Challenges faced regarding performance.
-   - Selection of profiling tools and techniques.
+3. What is the purpose of ES6 arrow functions?
+   a) To declare variables
+   b) To define classes
+   c) To declare functions with a concise syntax
+   d) To manipulate arrays
+   **Answer: c) To declare functions with a concise syntax**
 
-7. Analyzing Profiling Results:
-   - Interpretation of CPU usage data.
-   - Identifying memory leaks and inefficient memory usage.
-   - Analyzing I/O and network bottlenecks.
+4. How do you define a functional component in React?
+   a) Using the `class` keyword
+   b) Using the `function` keyword
+   c) Using the `render` method
+   d) Using the `component` method
+   **Answer: b) Using the `function` keyword**
 
-8. Implementing Performance Improvements:
-   - Strategies for optimizing code based on profiling results.
-   - Refactoring code to eliminate bottlenecks.
-   - Testing and validating performance improvements.
+5. What is Axios used for in React?
+   a) State management
+   b) Handling HTTP requests
+   c) Styling components
+   d) Managing routing
+   **Answer: b) Handling HTTP requests**
 
-9. Best Practices for Performance Optimization:
-   - Incorporating performance optimization into the development workflow.
-   - Continuous monitoring and iterative improvement.
+**Intermediate:**
 
-10. Conclusion and Future Directions:
-    - Summary of key takeaways.
-    - Suggestions for further optimization and future work.
+6. How can you handle errors in a React application?
+   a) Using try-catch blocks
+   b) Implementing error boundaries
+   c) Using the `catch` method in Axios
+   d) Wrapping the entire application in a `try` block
+   **Answer: b) Implementing error boundaries**
 
-This session could provide participants with practical insights into improving application performance through effective profiling techniques and optimization strategies.
+7. What is the purpose of the `useState` hook in React?
+   a) To manage component lifecycle
+   b) To handle HTTP requests
+   c) To manage state in functional components
+   d) To declare global variables
+   **Answer: c) To manage state in functional components**
 
+8. Which of the following is an example of a React event?
+   a) onClick
+   b) onEvent
+   c) handleEvent
+   d) eventListener
+   **Answer: a) onClick**
 
+9. What is imperative code in React?
+   a) Code that directly manipulates the DOM
+   b) Code that uses arrow functions
+   c) Code that fetches data from an API
+   d) Code that handles routing
+   **Answer: a) Code that directly manipulates the DOM**
 
-Certainly! Let's delve into the fascinating world of performance profiling techniques and explore the topics relevant to your case study on improving application performance. Here are some key areas to cover:
+10. How do you pass data from a parent component to a child component in React?
+    a) Using state
+    b) Using props
+    c) Using context
+    d) Using refs
+    **Answer: b) Using props**
 
-1. **Introduction to Profiling**:
-    - Understand what profiling is and why it's crucial for optimizing application performance.
-    - Differentiate between sampling and instrumentation profilers.
-    - Explore the benefits of using profilers in real-world scenarios.
+**Complex:**
 
-2. **Profiling Tools and Selection**:
-    - Discuss various profiling tools available (e.g., dotTrace, Visual Studio Profiler, perf, etc.).
-    - Consider factors like features, ease of use, and compatibility when choosing a profiler.
+11. Explain the concept of a higher-order component (HOC) in React.
+    a) It's a function that takes a component and returns a new component with enhanced functionality.
+    b) It's a component nested inside another component.
+    c) It's a component that handles errors in the application.
+    d) It's a component that uses Axios for handling HTTP requests.
+    **Answer: a) It's a function that takes a component and returns a new component with enhanced functionality.**
 
-3. **Profiling Techniques**:
-    - **Execution Profiling**:
-        - Measure execution time for functions and methods.
-        - Identify hotspots consuming significant processing time.
-    - **Memory Profiling**:
-        - Analyze memory usage, leaks, and inefficient memory allocation.
-        - Detect objects that contribute to memory bloat.
-    - **Thread Profiling**:
-        - Investigate thread behavior, contention, and synchronization issues.
-        - Optimize parallel execution.
+12. How do you handle asynchronous operations in React using hooks?
+    a) Using `async/await` syntax
+    b) Using callbacks
+    c) Using promises
+    d) Using the `useEffect` hook
+    **Answer: a) Using `async/await` syntax**
 
-4. **Interpreting Profiler Output**:
-    - Learn how to read profiler reports and metrics.
-    - Identify bottlenecks, resource-intensive functions, and problematic code segments.
-    - Real-world examples of using profiler output to pinpoint issues.
+13. Explain the purpose of the `useEffect` hook in React and provide an example use case.
+    a) It's used to handle side effects in functional components, such as fetching data from an API after the component mounts.
+    b) It's used to define custom hooks in React.
+    c) It's used for managing state in functional components.
+    d) It's used for error handling in React components.
+    **Answer: a) It's used to handle side effects in functional components, such as fetching data from an API after the component mounts.**
 
-5. **Best Practices for Profiling**:
-    - **Profiling with Realistic Data**:
-        - Use representative data to simulate actual application behavior.
-    - **Iterative Profiling**:
-        - Continuously profile and refine code as you make changes.
-    - **Collaboration and Knowledge Sharing**:
-        - Involve team members in profiling efforts.
-        - Share insights and findings.
+14. What is a controlled component in React?
+    a) A component that is controlled by external state
+    b) A component that is managed by Redux
+    c) A component that is not dependent on external state
+    d) A component that is used for styling only
+    **Answer: a) A component that is controlled by external state**
 
-6. **Challenges and Solutions**:
-    - **Complexity and Overhead**:
-        - Address the trade-off between profiling accuracy and performance impact.
-    - **Debugging Profiler Output**:
-        - Troubleshoot issues based on profiler data.
-    - **Profiling Sensitive Code**:
-        - Handle profiling in critical or sensitive parts of the application.
+15. Explain the concept of lazy loading in React and its benefits.
+    a) Lazy loading is a technique used to delay the loading of components until they are needed, which improves the initial loading time of the application.
+    b) Lazy loading is a way to handle errors in React components.
+    c) Lazy loading is a way to manage state in functional components.
+    d) Lazy loading is a technique used for routing in React applications.
+    **Answer: a) Lazy loading is a technique used to delay the loading of components until they are needed, which improves the initial loading time of the application.**
 
-7. **Case Studies and Real-Life Examples**:
-    - Explore existing case studies where profiling led to performance improvements.
-    - Discuss specific scenarios, challenges faced, and successful outcomes.
+Sure, I'll create a mix of basic, intermediate, and complex questions covering various aspects of React, props, ES6, functional components, Axios, error boundaries, React events, imperative and reference, state, and hooks.
 
-Remember, practical examples and hands-on exercises will enhance the learning experience. Profiling is a powerful tool, and understanding how to wield it effectively can significantly boost your application's performance! 🚀🔍
+**Basic:**
 
-If you'd like to dive deeper into a specific case study or explore any of the mentioned topics further, feel free to ask! 😊
+1. What is React?
+   a) A JavaScript framework for building user interfaces
+   b) A programming language
+   c) A database management system
+   d) A server-side rendering engine
+   **Answer: a) A JavaScript framework for building user interfaces**
 
-Source: Conversation with Bing, 20/3/2024
-(1) Using C++ Profilers for Performance Tuning - Code with C. https://www.codewithc.com/using-c-profilers-for-performance-tuning/.
-(2) Performance analysis of profiling module in data quality management .... https://pubs.aip.org/aip/acp/article/2654/1/020009/2869334/Performance-analysis-of-profiling-module-in-data.
-(3) A Case Study of R Performance Analysis and Optimization. https://dl.acm.org/doi/pdf/10.1145/3219104.3219156.
-(4) The application and impact of performance profiling in sport. https://www.taylorfrancis.com/chapters/edit/10.4324/9781315713809-14/application-impact-performance-profiling-sport-neil-weston.
-(5) Improving Frontend User Experience with Profiling and Performance .... https://community.bonitasoft.com/blog/improving-frontend-user-experience-profiling-and-performance.
-(6) Case Study – How the Profilers Uncover Critical Issues That Mimic Apps .... https://blog.jetbrains.com/dotnet/2022/05/16/case-study-how-the-profiler-uncovers-critical-issues-that-mimic-apps-normal-behavior/.
-(7) Performance and Profiling - Springer. https://link.springer.com/content/pdf/10.1007/978-1-4302-4345-8_18.pdf.
-(8) Performance Profiling Tools: A Comprehensive Guide. https://www.devopsschool.com/blog/performance-profiling-tools-a-comprehensive-guide/.
+2. What are props in React?
+   a) Internal state of a component
+   b) Properties that are passed to a component
+   c) CSS styles applied to a component
+   d) Actions triggered by a component
+   **Answer: b) Properties that are passed to a component**
 
-y ations, save time, and improve efficiency within traditional banking institutions. Attendees will gain insights into innovative approaches and strategies aimed at optimizing workflows, enhancing security measures, and ultimately transforming the banking landscape through the adoption of advanced technological solutions.
+3. What is the purpose of ES6 arrow functions?
+   a) To declare variables
+   b) To define classes
+   c) To declare functions with a concise syntax
+   d) To manipulate arrays
+   **Answer: c) To declare functions with a concise syntax**
+
+4. How do you define a functional component in React?
+   a) Using the `class` keyword
+   b) Using the `function` keyword
+   c) Using the `render` method
+   d) Using the `component` method
+   **Answer: b) Using the `function` keyword**
+
+5. What is Axios used for in React?
+   a) State management
+   b) Handling HTTP requests
+   c) Styling components
+   d) Managing routing
+   **Answer: b) Handling HTTP requests**
+
+**Intermediate:**
+
+6. How can you handle errors in a React application?
+   a) Using try-catch blocks
+   b) Implementing error boundaries
+   c) Using the `catch` method in Axios
+   d) Wrapping the entire application in a `try` block
+   **Answer: b) Implementing error boundaries**
+
+7. What is the purpose of the `useState` hook in React?
+   a) To manage component lifecycle
+   b) To handle HTTP requests
+   c) To manage state in functional components
+   d) To declare global variables
+   **Answer: c) To manage state in functional components**
+
+8. Which of the following is an example of a React event?
+   a) onClick
+   b) onEvent
+   c) handleEvent
+   d) eventListener
+   **Answer: a) onClick**
+
+9. What is imperative code in React?
+   a) Code that directly manipulates the DOM
+   b) Code that uses arrow functions
+   c) Code that fetches data from an API
+   d) Code that handles routing
+   **Answer: a) Code that directly manipulates the DOM**
+
+10. How do you pass data from a parent component to a child component in React?
+    a) Using state
+    b) Using props
+    c) Using context
+    d) Using refs
+    **Answer: b) Using props**
+
+**Complex:**
+
+11. Explain the concept of a higher-order component (HOC) in React.
+    a) It's a function that takes a component and returns a new component with enhanced functionality.
+    b) It's a component nested inside another component.
+    c) It's a component that handles errors in the application.
+    d) It's a component that uses Axios for handling HTTP requests.
+    **Answer: a) It's a function that takes a component and returns a new component with enhanced functionality.**
+
+12. How do you handle asynchronous operations in React using hooks?
+    a) Using `async/await` syntax
+    b) Using callbacks
+    c) Using promises
+    d) Using the `useEffect` hook
+    **Answer: a) Using `async/await` syntax**
+
+13. Explain the purpose of the `useEffect` hook in React and provide an example use case.
+    a) It's used to handle side effects in functional components, such as fetching data from an API after the component mounts.
+    b) It's used to define custom hooks in React.
+    c) It's used for managing state in functional components.
+    d) It's used for error handling in React components.
+    **Answer: a) It's used to handle side effects in functional components, such as fetching data from an API after the component mounts.**
+
+14. What is a controlled component in React?
+    a) A component that is controlled by external state
+    b) A component that is managed by Redux
+    c) A component that is not dependent on external state
+    d) A component that is used for styling only
+    **Answer: a) A component that is controlled by external state**
+
+15. Explain the concept of lazy loading in React and its benefits.
+    a) Lazy loading is a technique used to delay the loading of components until they are needed, which improves the initial loading time of the application.
+    b) Lazy loading is a way to handle errors in React components.
+    c) Lazy loading is a way to manage state in functional components.
+    d) Lazy loading is a technique used for routing in React applications.
+    **Answer: a) Lazy loading is a technique used to delay the loading of components until they are needed, which improves the initial loading time of the application.**
+
+Feel free to ask if you need further clarification or more questions!
