@@ -67,3 +67,57 @@ To incorporate machine learning models into economic analysis and simulation, fo
    - Ensure seamless integration between machine learning models and MongoDB for data retrieval, storage, and updates.
 
 By integrating machine learning with MongoDB, you can enhance economic analysis, simulate events, and examine factors affecting industries' performance based on NAICS classification.
+
+
+
+
+db.naicsCodes.insertMany([
+  {
+    code: "441110",
+    industry: "New Car Dealers"
+  },
+  {
+    code: "445110",
+    industry: "Supermarkets and Other Grocery (except Convenience) Stores"
+  },
+  {
+    code: "311111",
+    industry: "Dog and Cat Food Manufacturing"
+  },
+  {
+    code: "332710",
+    industry: "Machine Shops"
+  },
+  {
+    code: "621111",
+    industry: "Offices of Physicians (except Mental Health Specialists)"
+  },
+  {
+    code: "622110",
+    industry: "General Medical and Surgical Hospitals"
+  },
+  {
+    code: "236220",
+    industry: "Commercial and Institutional Building Construction"
+  },
+  {
+    code: "238220",
+    industry: "Plumbing, Heating, and Air-Conditioning Contractors"
+  },
+  {
+    code: "511210",
+    industry: "Software Publishers"
+  },
+  {
+    code: "518210",
+    industry: "Data Processing, Hosting, and Related Services"
+  }
+]);
+
+
+
+
+-----------
+
+
+
