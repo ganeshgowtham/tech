@@ -235,3 +235,91 @@ print(f'Future Stock Predictions: {future_predictions}')
 
 This pseudo-code provides a skeleton that can be expanded with specific preprocessing, feature engineering, and modeling techniques as required by your dataset and objectives.
 
+
+Sure, I'll create a small sample dataset for each of the files: `stock_data.csv`, `macro_data.csv`, and `micro_data.csv`. These datasets will include essential columns relevant to the implementation described earlier.
+
+### Sample Data for `stock_data.csv`
+
+```csv
+Date,StockPrice,Volume,MovingAverage50,MovingAverage200
+2023-01-01,150.0,1000000,145.0,140.0
+2023-01-02,152.0,1100000,146.0,141.0
+2023-01-03,151.0,1050000,147.0,142.0
+2023-01-04,153.0,1150000,148.0,143.0
+2023-01-05,154.0,1200000,149.0,144.0
+```
+
+### Sample Data for `macro_data.csv`
+
+```csv
+Date,GDPGrowthRate,UnemploymentRate,InflationRate,InterestRate
+2023-01-01,2.5,5.0,1.8,0.5
+2023-02-01,2.6,4.9,1.9,0.5
+2023-03-01,2.7,4.8,2.0,0.5
+2023-04-01,2.8,4.7,2.1,0.5
+2023-05-01,2.9,4.6,2.2,0.5
+```
+
+### Sample Data for `micro_data.csv`
+
+```csv
+Date,CompanyEvent,EventType,EarningsSurprise,NewProductLaunch
+2023-01-02,Quarterly Earnings Report,Earnings,5.0,
+2023-01-15,CEO Resignation,Leadership,,True
+2023-02-10,Quarterly Earnings Report,Earnings,-2.0,
+2023-03-20,Product Launch,Product,,True
+2023-04-25,Quarterly Earnings Report,Earnings,3.0,
+```
+
+### Explanation
+
+- **stock_data.csv**:
+  - **Date**: Date of the record.
+  - **StockPrice**: Closing price of the stock on that date.
+  - **Volume**: Number of shares traded.
+  - **MovingAverage50**: 50-day moving average of the stock price.
+  - **MovingAverage200**: 200-day moving average of the stock price.
+
+- **macro_data.csv**:
+  - **Date**: Date of the record (typically monthly or quarterly for macroeconomic data).
+  - **GDPGrowthRate**: Quarterly GDP growth rate.
+  - **UnemploymentRate**: Monthly unemployment rate.
+  - **InflationRate**: Monthly inflation rate.
+  - **InterestRate**: Central bank interest rate.
+
+- **micro_data.csv**:
+  - **Date**: Date of the company-specific event.
+  - **CompanyEvent**: Description of the event.
+  - **EventType**: Type of event (e.g., Earnings, Leadership, Product).
+  - **EarningsSurprise**: Earnings surprise percentage, if applicable.
+  - **NewProductLaunch**: Indicator if a new product was launched (True/False).
+
+### Putting It All Together
+
+These datasets can be merged and processed to create a comprehensive dataset for training and prediction. Below is an example of how to load and merge these datasets in Python using pandas:
+
+```python
+import pandas as pd
+
+# Load datasets
+stock_data = pd.read_csv('stock_data.csv')
+macro_data = pd.read_csv('macro_data.csv')
+micro_data = pd.read_csv('micro_data.csv')
+
+# Convert Date columns to datetime
+stock_data['Date'] = pd.to_datetime(stock_data['Date'])
+macro_data['Date'] = pd.to_datetime(macro_data['Date'])
+micro_data['Date'] = pd.to_datetime(micro_data['Date'])
+
+# Merge datasets
+merged_data = pd.merge(stock_data, macro_data, on='Date', how='left')
+merged_data = pd.merge(merged_data, micro_data, on='Date', how='left')
+
+# Fill missing values for event-related columns with appropriate default values
+merged_data['EarningsSurprise'] = merged_data['EarningsSurprise'].fillna(0)
+merged_data['NewProductLaunch'] = merged_data['NewProductLaunch'].fillna(False)
+
+print(merged_data)
+```
+
+This script will load the data, convert date columns to datetime format, merge the datasets on the Date column, and fill any missing values in the event-related columns. The resulting `merged_data` DataFrame will be ready for further processing and modeling.
