@@ -323,3 +323,10 @@ print(merged_data)
 ```
 
 This script will load the data, convert date columns to datetime format, merge the datasets on the Date column, and fill any missing values in the event-related columns. The resulting `merged_data` DataFrame will be ready for further processing and modeling.
+
+
+**Title: GENAi Productivity Booster for Bank Operators**
+
+**Description:** 
+
+The GENAi Productivity Booster is an advanced, intuitive chatbot solution designed to enhance the efficiency and effectiveness of bank operators. Leveraging state-of-the-art generative AI, this innovative tool streamlines daily tasks, automates routine inquiries, and provides real-time support for complex banking operations. With its user-friendly interface and intelligent response capabilities, the GENAi Productivity Booster empowers bank operators to handle customer queries swiftly, manage workflows seamlessly, and focus on high-value activities, ultimately driving productivity and improving customer satisfaction.
