@@ -330,3 +330,55 @@ This script will load the data, convert date columns to datetime format, merge t
 **Description:** 
 
 The GENAi Productivity Booster is an advanced, intuitive chatbot solution designed to enhance the efficiency and effectiveness of bank operators. Leveraging state-of-the-art generative AI, this innovative tool streamlines daily tasks, automates routine inquiries, and provides real-time support for complex banking operations. With its user-friendly interface and intelligent response capabilities, the GENAi Productivity Booster empowers bank operators to handle customer queries swiftly, manage workflows seamlessly, and focus on high-value activities, ultimately driving productivity and improving customer satisfaction.
+
+
+
+{
+  "duns_number": "123456789",
+  "business_name": "ABC Manufacturing Co.",
+  "trade_name": "ABC Widgets",
+  "address": {
+    "physical": "123 Industrial Park Road, Suite 200, Springfield, IL 62704, USA",
+    "mailing": "P.O. Box 456, Springfield, IL 62705, USA"
+  },
+  "phone_number": "+1 (555) 123-4567",
+  "website": "www.abcmfg.com",
+  "naics_code_primary": "332710",
+  "naics_description_primary": "Machine Shops",
+  "naics_code_secondary": "333514",
+  "naics_description_secondary": "Special Die and Tool, Die Set, Jig, and Fixture Manufacturing",
+  "business_description": "ABC Manufacturing Co. specializes in custom metal fabrication and precision machining for various industrial applications.",
+  "business_structure": "Corporation",
+  "year_established": "1985",
+  "number_of_employees": 150,
+  "annual_revenue": "$25,000,000",
+  "executive_contacts": [
+    {
+      "name": "John Smith",
+      "title": "CEO",
+      "email": "john.smith@abcmfg.com"
+    },
+    {
+      "name": "Jane Doe",
+      "title": "CFO",
+      "email": "jane.doe@abcmfg.com"
+    }
+  ],
+  "ownership_details": "Privately Owned",
+  "financial_data": {
+    "balance_sheet": "URL to balance sheet",
+    "income_statement": "URL to income statement",
+    "key_ratios": {
+      "current_ratio": 2.5,
+      "debt_to_equity_ratio": 0.3
+    }
+  },
+  "payment_history": "Timely payment of invoices, credit score 800",
+  "affiliates_subsidiaries": [
+    {
+      "name": "XYZ Subsidiary Co.",
+      "duns_number": "987654321"
+    }
+  ],
+  "operational_data": "State-of-the-art CNC machines, automated production lines"
+}
