@@ -153,3 +153,33 @@ By participating in the hackathon, developers not only gain valuable skills and 
 
 how many poeple uses azure and how many paticapted and howmany evailations 
 ------
+
+
+### Impactful Outcomes for Key Tasks
+
+**1. Coordinated Day-to-Day DevOps Issues for Developers**
+   - **Outcome**: Significantly enhanced developer productivity and time efficiency by proactively addressing and resolving daily DevOps issues. This allowed developers to focus more on coding and less on troubleshooting, leading to faster development cycles and improved project timelines.
+
+**2. Contributed to WAF Test Dashboard**
+   - **Outcome**: Developed and improved the WAF Test Dashboard, facilitating the automation engineers' transition to the CTO team's standards. This contribution streamlined testing processes, ensuring better integration and consistency across teams, ultimately enhancing the overall quality and reliability of the software.
+
+**3. Configured Chaos Engineering Setup in CICD with TestNG**
+   - **Outcome**: Pioneered the integration of Chaos Engineering into the CICD pipeline using TestNG. This innovation improved system resilience and reliability by proactively identifying and mitigating potential failures, leading to more robust and fault-tolerant applications.
+
+**4. Removed Deprecated Sonar Rules from Central System**
+   - **Outcome**: By removing outdated Sonar rules, developers could concentrate on relevant code quality issues, resulting in more efficient code reviews and higher code quality. This initiative saved developers significant time and effort, enabling them to focus on critical tasks and enhancements.
+
+**5. Transitioned from IntelliJ Ultimate to Community Edition**
+   - **Outcome**: Achieved substantial cost savings for PTCT by advocating for and transitioning to IntelliJ Community Edition. Additionally, proposed and implemented hosting IntelliJ licenses within WF using a licensing server, and curated a glossary of essential VS Code plugins, ensuring developers had the necessary tools while reducing overall costs.
+
+**6. Participated in Upskill Activities and Proposed Self-Service Utilities**
+   - **Outcome**: Contributed to upskilling initiatives at PTCT and CCIBT levels, introducing self-service utilities that empowered developers to perform DevOps tasks independently. This led to significant time savings and increased efficiency, as developers could resolve issues and manage their environments without external dependencies.
+
+**7. Member of Developer Experience Core Committee**
+   - **Outcome**: Actively engaged with the CTO team to address and resolve issues faced by CCIBT engineers, fostering a collaborative environment and improving developer experience. Regular cadence meetings ensured continuous feedback and iterative improvements, enhancing overall developer satisfaction and productivity.
+
+These outcomes reflect the significant positive impact of your contributions, highlighting improvements in productivity, cost savings, system resilience, and overall developer experience.
+
+
+--------
+
