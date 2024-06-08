@@ -1,0 +1,65 @@
+### Initiative Description
+
+**Title**: Developer Upskilling Initiative in Payments and Treasury Domain
+
+**Description**:
+This initiative is focused on providing developers with comprehensive knowledge of the Payments and Treasury domain, alongside technical training in Java, React, and Micro Frontend (MFE). It aims to upskill engineers from non-Java backgrounds such as Webmethods, OSB/SOA, and Mainframe, enhancing their fundamental skills and enabling them to contribute effectively to transformation projects. The initiative includes continuous content updates to maintain relevance and effectiveness.
+
+### Roles and Responsibilities
+
+**Program Manager**:
+- **Oversee Initiative**: Manage the overall development and implementation of the training program.
+- **Coordinate Teams**: Collaborate with domain experts, technical trainers, and the core team to design and deliver the curriculum.
+- **Monitor Progress**: Track participant progress and adjust the program as necessary to ensure successful outcomes.
+- **Content Updates**: Ensure training materials are regularly updated to reflect current industry trends and technologies.
+
+**Domain Experts**:
+- **Develop Content**: Create and deliver training modules focused on Payments and Treasury domain knowledge.
+- **Mentorship**: Serve as mentors, providing guidance and support to participants.
+- **Conduct Sessions**: Lead case study-based and workshop-based training sessions.
+
+**Technical Trainers**:
+- **Technical Training**: Provide training sessions in Java, React, and MFE through code kata exercises, case studies, and workshops.
+- **Open-Office Hours**: Offer open-office hours to address participant queries and provide additional support.
+- **Assignments**: Develop and review assignments to reinforce learning.
+
+**Content Development Team**:
+- **Content Creation**: Develop training materials and continuously update them based on feedback and industry changes.
+- **Collaboration**: Work with domain experts and technical trainers to integrate new content and ensure coherence.
+
+**Core Team**:
+- **Regular Cadence**: Maintain regular communication with all stakeholders to ensure alignment and progress.
+- **Review Deck**: Review training decks and materials to ensure quality and relevance.
+- **Dry-Runs**: Conduct dry-runs of training sessions to refine delivery and content.
+
+**Participants**:
+- **Active Engagement**: Actively participate in all training sessions and complete assignments.
+- **Application of Skills**: Apply new skills and knowledge to their respective transformation projects.
+- **Feedback**: Provide feedback on training content and delivery to help refine the program.
+
+### Outcomes
+
+**Enhanced Domain Knowledge**:
+- Participants gain a deeper understanding of the Payments and Treasury domain, improving their ability to work on related projects.
+
+**Technical Proficiency**:
+- Improved skills in Java, React, and MFE, allowing participants to contribute more effectively to transformation initiatives.
+
+**Cross-Domain Expertise**:
+- Engineers from non-Java backgrounds acquire essential Java and other technical skills, enhancing their versatility.
+
+**Project Contributions**:
+- Participants leverage their new skills to drive progress in their transformation projects, resulting in improved project outcomes.
+
+**Continuous Improvement**:
+- Regular updates to training content ensure it remains relevant, reflecting the latest industry trends and technologies.
+- Ongoing feedback loops help refine the program, making it more effective and responsive to participant needs.
+
+**Organizational Impact**:
+- A more knowledgeable and versatile workforce capable of meeting evolving business demands.
+- Enhanced employee satisfaction and retention due to investment in professional development.
+
+**Community Building**:
+- Establishing a culture of continuous learning and collaboration through regular interactions and open-office hours.
+
+By engaging in this initiative, developers will enhance their domain knowledge and technical skills, enabling them to contribute more effectively to their projects and the broader organization.
