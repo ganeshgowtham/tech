@@ -240,3 +240,52 @@ The adoption of Copilot has not only transformed our development processes but a
 
 ----
 
+
+Risk and complince 
+
+### Examples in Banking Technology Division
+
+**1. Business Risk on Framework, Policies, Regulatory Requirements**
+   - **Example**: Ensuring compliance with the General Data Protection Regulation (GDPR) by implementing data encryption and access control policies across all banking applications.
+     - **Details**: The banking technology division must develop and enforce a comprehensive framework that includes encryption of sensitive customer data, strict access controls, regular audits, and employee training to ensure adherence to GDPR. Failure to comply can lead to significant fines and damage to the bank's reputation.
+
+**2. Shares Knowledge to Minimize Business Risk**
+   - **Example**: Conducting regular training sessions and workshops on secure coding practices and regulatory compliance for all development teams.
+     - **Details**: By sharing knowledge on best practices in secure coding and staying updated on regulatory changes, the technology division helps minimize risks associated with data breaches and non-compliance. These sessions may cover topics like OWASP Top Ten vulnerabilities, recent regulatory updates, and case studies of past incidents.
+
+**3. Identifies and Escalates Risk**
+   - **Example**: Monitoring application logs and user activities to identify unusual patterns that may indicate a potential security breach or non-compliance issue.
+     - **Details**: When unusual activities are detected, such as repeated failed login attempts or unauthorized data access, the incident is promptly escalated to the risk management team and senior leadership. This allows for quick intervention to mitigate potential threats before they escalate.
+
+**4. Recommends Risk Mitigation**
+   - **Example**: Proposing the implementation of multi-factor authentication (MFA) across all customer-facing and internal banking applications.
+     - **Details**: MFA adds an extra layer of security, reducing the risk of unauthorized access. The recommendation would include a detailed plan for implementation, potential impacts on user experience, and a timeline for rollout. This helps protect against fraud and unauthorized access, mitigating risks associated with single-factor authentication methods.
+
+**5. Controls**
+   - **Example**: Establishing a robust change management process that includes rigorous testing and approval protocols for all software updates and deployments.
+     - **Details**: The control framework ensures that any changes to the banking systems are thoroughly tested in a staging environment and approved by relevant stakeholders before being deployed to production. This minimizes the risk of introducing vulnerabilities or non-compliant features into the live environment, ensuring stability and security of banking operations.
+
+### Additional Examples
+
+**1. Business Risk on Framework, Policies, Regulatory Requirements**
+   - **Example**: Developing a compliance framework for Anti-Money Laundering (AML) regulations.
+     - **Details**: The framework includes automated transaction monitoring, customer due diligence processes, and regular compliance reporting to regulatory bodies. It ensures the bank adheres to AML regulations, preventing financial crimes and avoiding regulatory penalties.
+
+**2. Shares Knowledge to Minimize Business Risk**
+   - **Example**: Creating and distributing a monthly security newsletter that highlights recent threats, compliance updates, and best practices.
+     - **Details**: The newsletter keeps all employees informed about the latest developments in cybersecurity and regulatory requirements, fostering a culture of awareness and proactive risk management.
+
+**3. Identifies and Escalates Risk**
+   - **Example**: Implementing a real-time risk dashboard that monitors key risk indicators (KRIs) and alerts risk management teams to potential issues.
+     - **Details**: The dashboard aggregates data from various sources, providing a comprehensive view of the bank’s risk posture. When KRIs exceed predefined thresholds, the system automatically escalates the issue to the relevant teams for immediate action.
+
+**4. Recommends Risk Mitigation**
+   - **Example**: Suggesting the adoption of a zero-trust security model to enhance network security.
+     - **Details**: The zero-trust model requires continuous verification of user identity and device integrity, reducing the risk of insider threats and external attacks. The recommendation includes a phased implementation plan, resource allocation, and potential impacts on existing infrastructure.
+
+**5. Controls**
+   - **Example**: Implementing a data loss prevention (DLP) solution to protect sensitive information.
+     - **Details**: The DLP solution monitors data transfers and applies policies to prevent unauthorized sharing of sensitive information. It includes encryption, access controls, and real-time alerts, ensuring that data is only accessible by authorized personnel and reducing the risk of data breaches.
+
+
+-------
