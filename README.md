@@ -59,3 +59,87 @@ Here are some example functional and non-functional requirements for a commercia
 8. **Compliance**:
    - The system must adhere to GDPR for handling customer data.
    - The system should comply with local financial regulations in all operating regions.
+
+
+
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ExcelReportListener implements ITestListener {
+    private Workbook workbook;
+    private Sheet sheet;
+    private Map<String, Object[]> testResultData;
+
+    public ExcelReportListener() {
+        workbook = new XSSFWorkbook();
+        sheet = workbook.createSheet("Test Results");
+        testResultData = new HashMap<>();
+        testResultData.put("1", new Object[]{"Test Name", "Status"});
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        testResultData.put(String.valueOf(testResultData.size() + 1), new Object[]{result.getName(), "PASS"});
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        testResultData.put(String.valueOf(testResultData.size() + 1), new Object[]{result.getName(), "FAIL"});
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        int rownum = 0;
+        for (String key : testResultData.keySet()) {
+            Row row = sheet.createRow(rownum++);
+            Object[] objArr = testResultData.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                Cell cell = row.createCell(cellnum++);
+                if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                }
+            }
+        }
+        try (FileOutputStream out = new FileOutputStream("TestResults.xlsx")) {
+            workbook.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Other overridden methods can be left empty
+    @Override public void onTestStart(ITestResult result) {}
+    @Override public void onTestSkipped(ITestResult result) {}
+    @Override public void onTestFailedButWithinSuccessPercentage(ITestResult result) {}
+    @Override public void onStart(ITestContext context) {}
+}
+
+
+
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(ExcelReportListener.class)
+public class SampleTest {
+    @Test
+    public void test1() {
+        // Test logic
+        assert true;
+    }
+
+    @Test
+    public void test2() {
+        // Test logic
+        assert false;
+    }
+}
