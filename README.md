@@ -65,3 +65,18 @@ In addition to core responsibilities, I lead several LOB-level initiatives:
 I ensure that security, risk management, and compliance are top priorities. Principles were part of SDLC lifecycle and make sure that code developed not only bug free also secured and vulnerable free. Made PAA complaint with ADA standard, policy exceptions mitigated on time and remediated SHRP issues associated with CEO Payments and migrated XXX from old system to newer system without causing any major issues for customers.
 
 In short, I have the leadership experience, technical expertise, and strategic vision needed to spearhead complex, mission-critical initiatives. I don’t just build systems; I drive business value by aligning technology with organizational goals, ensuring sustainable success in today’s digital landscape.”
+
+
+Aspiring to be a **Distinguished Engineer** is driven by several key motivations:
+
+1. **Broader Impact**: As a Distinguished Engineer, I can influence not just individual projects but the entire organization's technical direction, ensuring long-term success by shaping architectures and engineering best practices at scale.
+  
+2. **Strategic Leadership**: This role allows me to focus on strategic decision-making, aligning technology with business goals and solving complex, large-scale problems that drive transformative change.
+  
+3. **Mentorship and Development**: I am passionate about mentoring the next generation of engineers, helping them grow their skills and fostering a culture of innovation and engineering excellence across teams.
+  
+4. **Driving Innovation**: Becoming a Distinguished Engineer provides the opportunity to lead cutting-edge technological initiatives, explore new trends, and drive innovation that can redefine the organization's competitive edge.
+
+5. **Architecting the Future**: I am inspired by the idea of creating resilient, scalable systems that serve as the foundation for future success. The Distinguished Engineer role gives me the ability to design solutions that have a long-lasting impact.
+
+In short, this role aligns with my desire to lead at a high level, mentor others, and contribute to the long-term vision and success of the organization.
