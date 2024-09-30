@@ -80,3 +80,47 @@ Aspiring to be a **Distinguished Engineer** is driven by several key motivations
 5. **Architecting the Future**: I am inspired by the idea of creating resilient, scalable systems that serve as the foundation for future success. The Distinguished Engineer role gives me the ability to design solutions that have a long-lasting impact.
 
 In short, this role aligns with my desire to lead at a high level, mentor others, and contribute to the long-term vision and success of the organization.
+
+
+
+
+After an interview with a senior executive from an infrastructure background, you can ask thoughtful questions to demonstrate your interest in leadership, technical vision, and strategy. Here are some questions you could consider:
+
+### Strategic and Organizational Questions:
+1. **What are the biggest infrastructure challenges your team is currently facing, and how do you prioritize solving them?**
+   - Shows interest in understanding the organization's pain points and how they're managed.
+
+2. **How do you see the role of infrastructure evolving in the next 3-5 years, particularly with advancements in cloud, AI, and automation?**
+   - Demonstrates forward-thinking and interest in long-term strategy.
+
+3. **What are your key priorities for the infrastructure team in driving the organization's digital transformation?**
+   - Highlights your focus on how infrastructure contributes to broader business goals.
+
+4. **How do you foster collaboration between infrastructure, development, and other teams to ensure alignment on goals and smooth execution?**
+   - Indicates your awareness of cross-functional alignment.
+
+### Leadership and Innovation Questions:
+5. **What qualities do you believe are essential for someone in a leadership role within the infrastructure space?**
+   - Shows you’re interested in understanding the leadership dynamics of infrastructure teams.
+
+6. **How do you encourage innovation within the infrastructure team while maintaining stability and security in operations?**
+   - Highlights your interest in balancing innovation with operational excellence.
+
+7. **Can you share an example of a particularly successful infrastructure initiative you've led or overseen, and what made it successful?**
+   - Provides insight into their leadership style and decision-making process.
+
+### Risk and Security Questions:
+8. **With security being a top concern, how do you ensure that infrastructure is resilient against potential threats while keeping operations efficient?**
+   - Focuses on risk management and security, critical for infrastructure.
+
+9. **How do you approach risk management and disaster recovery planning for critical infrastructure systems?**
+   - Shows you're thinking about risk mitigation and business continuity.
+
+### Talent and Development Questions:
+10. **How do you approach developing talent within the infrastructure team? What skills do you see as crucial for future infrastructure leaders?**
+    - Reflects your interest in team growth and professional development.
+
+11. **What advice would you give to someone aspiring to grow into a senior infrastructure leadership role?**
+    - Shows your interest in career growth and seeking wisdom from their experience.
+
+These questions will allow you to understand the executive's priorities, their vision for the future, and how you can align your own skills and aspirations with the organization’s goals.
