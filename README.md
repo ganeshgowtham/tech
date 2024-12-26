@@ -264,65 +264,7 @@ Would you like examples of specific configurations or scripts for any of these t
 ### Conclusion
 Stress and performance testing validate the application's ability to handle high loads, recover from failures, and scale dynamically, ensuring stability and reliability in OpenShift.
 
-```mermaid
-graph TB
-    subgraph JMeter [JMeter Load Testing Tool]
-        JM1[Generate Load and Requests]
-    end
-    
-    subgraph ChaosEngineering [Chaos Engineering]
-        CM1[Spring Chaos Monkey Library]
-        CM1 --> CM2[Inject Failures (e.g., Latency, Pod Kill)]
-    end
 
-    JM1 --> |Simulated Traffic| LB[Load Balancer]
-
-    subgraph Datacenter1 [Datacenter 1]
-        D1Cluster[Cluster 1]
-        D1Cluster --> D1Node1[Node 1]
-        D1Cluster --> D1Node2[Node 2]
-        D1Node1 --> D1Pod1[Pod 1 (App Instance)]
-        D1Node1 --> D1Pod2[Pod 2 (App Instance)]
-        D1Node2 --> D1Pod3[Pod 3 (App Instance)]
-    end
-
-    subgraph Datacenter2 [Datacenter 2]
-        D2Cluster[Cluster 2]
-        D2Cluster --> D2Node1[Node 1]
-        D2Cluster --> D2Node2[Node 2]
-        D2Node1 --> D2Pod1[Pod 1 (App Instance)]
-        D2Node1 --> D2Pod2[Pod 2 (App Instance)]
-        D2Node2 --> D2Pod3[Pod 3 (App Instance)]
-    end
-
-    subgraph Datacenter3 [Datacenter 3]
-        D3Cluster[Cluster 3]
-        D3Cluster --> D3Node1[Node 1]
-        D3Cluster --> D3Node2[Node 2]
-        D3Node1 --> D3Pod1[Pod 1 (App Instance)]
-        D3Node1 --> D3Pod2[Pod 2 (App Instance)]
-        D3Node2 --> D3Pod3[Pod 3 (App Instance)]
-    end
-
-    subgraph Datacenter4 [Datacenter 4]
-        D4Cluster[Cluster 4]
-        D4Cluster --> D4Node1[Node 1]
-        D4Cluster --> D4Node2[Node 2]
-        D4Node1 --> D4Pod1[Pod 1 (App Instance)]
-        D4Node1 --> D4Pod2[Pod 2 (App Instance)]
-        D4Node2 --> D4Pod3[Pod 3 (App Instance)]
-    end
-
-    LB --> |Route Requests| Datacenter1
-    LB --> |Route Requests| Datacenter2
-    LB --> |Route Requests| Datacenter3
-    LB --> |Route Requests| Datacenter4
-
-    CM2 --> D1Cluster
-    CM2 --> D2Cluster
-    CM2 --> D3Cluster
-    CM2 --> D4Cluster
-```
 
 
 
