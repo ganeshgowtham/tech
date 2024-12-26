@@ -324,3 +324,87 @@ graph TB
     CM2 --> D4Cluster
 ```
 
+
+
+```mermaid
+flowchart TD
+    %% Personas
+    User([End User]):::persona
+    Tester([Test Engineer]):::persona
+
+    %% Testing Tools
+    subgraph Testing[Testing Framework]
+        JM[JMeter]
+        PW[PlayWright]
+        CE[Chaos Engineering]
+    end
+
+    %% Load Balancer
+    GLB{Global Load Balancer}
+
+    %% Data Centers
+    subgraph DC1[Data Center 1]
+        OCP1[OpenShift Cluster 1]
+        subgraph Pods1[Pods]
+            P1[DummyApp Pod 1]
+            P2[DummyApp Pod 2]
+        end
+    end
+
+    subgraph DC2[Data Center 2]
+        OCP2[OpenShift Cluster 2]
+        subgraph Pods2[Pods]
+            P3[DummyApp Pod 1]
+            P4[DummyApp Pod 2]
+        end
+    end
+
+    subgraph DC3[Data Center 3]
+        OCP3[OpenShift Cluster 3]
+        subgraph Pods3[Pods]
+            P5[DummyApp Pod 1]
+            P6[DummyApp Pod 2]
+        end
+    end
+
+    subgraph DC4[Data Center 4]
+        OCP4[OpenShift Cluster 4]
+        subgraph Pods4[Pods]
+            P7[DummyApp Pod 1]
+            P8[DummyApp Pod 2]
+        end
+    end
+
+    %% Dependencies
+    subgraph Services[External Services]
+        RD[(Redis)]
+        MDB[(MongoDB)]
+        RPay[RazorPay API]
+    end
+
+    %% Failure Scenarios
+    subgraph Failures[Potential Failures]
+        PF[Pod Failure]
+        NF[Node Failure]
+        CF[Cluster Failure]
+    end
+
+    %% Connections
+    User --> GLB
+    Tester --> Testing
+    JM & PW --> GLB
+    CE --> Failures
+    
+    GLB --> DC1 & DC2 & DC3 & DC4
+    
+    DC1 & DC2 & DC3 & DC4 --> RD
+    DC1 & DC2 & DC3 & DC4 --> MDB
+    DC1 & DC2 & DC3 & DC4 --> RPay
+    
+    Failures -.->|Impact| DC1 & DC2 & DC3 & DC4
+
+    %% Styling
+    classDef persona fill:#fff,stroke:#000,stroke-width:2px
+    classDef default fill:#fff,stroke:#000
+    classDef service fill:#fff,stroke:#000,stroke-dasharray: 5 5
+```
