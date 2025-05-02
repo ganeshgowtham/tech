@@ -1,0 +1,196 @@
+/* Base widget styles */
+QWidget {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Sidebar styles - removed border */
+QWidget[sidebar="true"] {
+    background-color: var(--sidebar);
+}
+
+QTextEdit {
+    background-color: var(--content);
+    color: var(--text);
+    border: none;
+    border-radius: 8px;
+}
+
+QLineEdit {
+    background-color: var(--input);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    padding: 10px 20px;
+}
+
+QLineEdit:focus {
+    border: 1px solid var(--highlight);
+}
+
+QListWidget {
+    background-color: var(--content);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+QListWidget::item {
+    background-color: var(--input);
+    border-radius: 4px;
+    margin: 2px 0px;
+    padding: 8px;
+}
+
+QListWidget::item:hover {
+    background-color: var(--hover);
+}
+
+QLabel {
+    color: var(--text);
+    font-weight: bold;
+    padding: 5px 0px;
+}
+
+QProgressBar {
+    background-color: var(--input);
+    border-radius: 4px;
+    height: 4px;
+}
+
+QProgressBar::chunk {
+    background-color: var(--highlight);
+    border-radius: 4px;
+}
+
+/* Loading overlay */
+QLabel.loading-label {
+    color: #2662D9;
+    font-size: 48px;
+    background-color: rgba(26, 28, 30, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Button styles */
+QPushButton.clear-btn {
+    background-color: transparent;
+    border: none;
+    color: #808080;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+QPushButton.clear-btn:hover {
+    color: #e74c3c;
+}
+
+QPushButton.send-btn {
+    background-color: #2662D9;
+    border-radius: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+QPushButton.send-btn:hover {
+    background-color: #1D4BA3;
+}
+
+QPushButton.close-btn {
+    background-color: transparent;
+    color: #E4E7EB;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton.close-btn:hover {
+    color: #FF5555;
+}
+
+QPushButton.email-btn {
+    background-color: transparent;
+    color: #E4E7EB;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton.email-btn:hover {
+    color: #90CAF9;
+}
+
+/* Menu styles */
+QMenu {
+    background-color: #2D3135;
+    color: #E4E7EB;
+    border: 1px solid #404346;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+QMenu::item {
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+QMenu::item:selected {
+    background-color: #1D4BA3;
+}
+
+/* Log widget */
+QWidget.log-widget {
+    border: 1px solid #404346;
+    border-radius: 8px;
+}
+
+/* Notification badge */
+QLabel.notification-badge {
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: -10px -10px 0 0;
+}
+
+/* Contact info */
+QLabel.contact-info {
+    background-color: #1A1C1E;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Persona selector styles */
+QWidget.persona-container {
+    background-color: var(--content);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+QComboBox.persona-selector {
+    background-color: var(--input);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 10px;
+    min-width: 200px;
+}
+
+QComboBox.persona-selector:hover {
+    border-color: var(--highlight);
+}
+
+QComboBox.persona-selector::drop-down {
+    border: none;
+}
+
+QComboBox.persona-selector::down-arrow {
+    image: none;
+    border: none;
+}
