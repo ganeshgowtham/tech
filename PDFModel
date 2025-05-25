@@ -1,0 +1,179 @@
+from pydantic import BaseModel
+from typing import List
+from datetime import datetime
+from reportlab.pdfgen import canvas
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import Table, TableStyle
+from reportlab.lib.units import inch
+import os
+
+class Transaction(BaseModel):
+    transaction_id: str
+    status: str
+    transaction_date: datetime
+
+class PDFModel(BaseModel):
+    chat_session_id: str
+    yyy_session_id: str
+    time: datetime
+    transactions: List[Transaction]
+
+def create_transaction_pdf(pdf_model: PDFModel, output_filename: str = "transaction_report.pdf"):
+    """
+    Creates a professional PDF report from the PDFModel data with Wells Fargo-inspired branding.
+    
+    Args:
+        pdf_model: PDFModel instance containing transaction data
+        output_filename: Name of the output PDF file
+    """
+    # Create PDF canvas with A4 size
+    c = canvas.Canvas(output_filename, pagesize=A4)
+    width, height = A4    # Add date and time at the top
+    c.setFont("Helvetica", 10)
+    current_time = datetime.now().strftime("%B %d, %Y %H:%M:%S")
+    c.drawString(width - 200, height - 20, current_time)
+    
+    # Add sasasas text in left corner
+    
+    c.drawString(40, height - 20, "Sample AI Payments Repair Report")
+
+      # Moved down by 20 points
+
+    # Add logo
+    if os.path.exists("image.png"):
+        c.drawImage("image.png", 40, height - 110, width=80, height=80)  # Moved down by 20 points    # Add title
+    c.setFillColor(colors.black)
+    c.setFont("Helvetica-Bold", 20)
+    c.drawString(140, height - 80, "Sample Audit Report")  # Moved down by 20 points
+
+    # Add bank name
+    c.setFont("Helvetica", 12)
+    c.drawString(140, height - 100, "[Bank Name]")  # Moved down by 20 points
+
+    # Add session information
+    c.setFillColor(colors.HexColor('#c8102e'))  # Change session title color to red
+    c.setFont("Helvetica-Bold", 12)
+    c.drawString(40, height - 140, "Session Information")
+
+    c.setFillColor(colors.black)
+    c.setFont("Helvetica", 10)
+    info_y = height - 160
+    c.drawString(40, info_y, f"Chat Session ID: {pdf_model.chat_session_id}")
+    c.drawString(40, info_y - 20, f"GTMS Session ID: {pdf_model.gtms_session_id}")
+    c.drawString(40, info_y - 40, f"Session Time: {pdf_model.time.strftime('%Y-%m-%d %H:%M:%S')}")
+
+    # Add decorative line separator
+    c.setStrokeColor(colors.black)
+    c.setLineWidth(1)
+    c.line(40, info_y - 60, width - 40, info_y - 60)
+
+    # Add Dummy section
+    c.setFillColor(colors.HexColor('#c8102e'))  # Red color for section title
+    c.setFont("Helvetica-Bold", 12)
+    dummy_y = info_y - 90  # Position for Dummy section
+    c.drawString(40, dummy_y, "Dummy")
+      # Add dummy content
+    c.setFillColor(colors.black)
+    c.setFont("Helvetica", 10)
+    dummy_text = """This report provides an overview of the Agentic AI system's performance in repairing stuck payment transactions within the bank's operations. The Agentic AI agents, operating on bank operator desktops and collaborating with humans in the loop, have worked to identify, repair, or cancel payment transactions as necessary. The report details:
+
+Logged-in Agents: A list of agents who accessed the system during the reporting period."""
+    
+    # Draw each line of the dummy text with proper spacing
+    y_offset = dummy_y - 20
+    for line in dummy_text.split('\n'):
+        c.drawString(40, y_offset, line.strip())
+        y_offset -= 15
+
+    # Add decorative line after Dummy section
+    c.setStrokeColor(colors.black)
+    c.setLineWidth(1)
+    c.line(40, dummy_y - 70, width - 40, dummy_y - 70)    # Add transaction table title
+    c.setFillColor(colors.HexColor('#c8102e'))  # Change transaction details title color to red
+    c.setFont("Helvetica-Bold", 12)
+    c.drawString(40, dummy_y - 90, "Transaction Details")
+    
+    # Add transaction counts
+    completed_count = len([t for t in pdf_model.transactions if t.status.lower() == "completed"])
+    pending_count = len([t for t in pdf_model.transactions if t.status.lower() == "pending"])
+    
+    c.setFillColor(colors.black)
+    c.setFont("Helvetica", 10)
+    c.drawString(40, dummy_y - 105, f"Completed: {completed_count}   Pending: {pending_count}")
+
+    # Create table data
+    table_data = [["S.No", "Transaction ID", "Status", "Transaction Date"]]
+    for idx, transaction in enumerate(pdf_model.transactions, 1):
+        table_data.append([
+            str(idx),
+            transaction.transaction_id,
+            transaction.status,
+            transaction.transaction_date.strftime("%Y-%m-%d %H:%M:%S")
+        ])
+
+    # Create table with professional styling
+    table = Table(table_data, colWidths=[0.7*inch, 2*inch, 2*inch, 2.3*inch])
+    table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),  # Light gray header
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, 0), 12),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('TOPPADDING', (0, 0), (-1, 0), 12),
+        ('BACKGROUND', (0, 1), (-1, -1), colors.white),
+        ('TEXTCOLOR', (0, 1), (-1, -1), colors.black),
+        ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+        ('FONTSIZE', (0, 1), (-1, -1), 10),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.black),  # Black grid lines
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.lightgrey]),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('TOPPADDING', (0, 1), (-1, -1), 8),
+        ('BOTTOMPADDING', (0, 1), (-1, -1), 8),
+    ]))    # Draw table
+    table.wrapOn(c, width, height)
+    table.drawOn(c, 40, dummy_y - 210)  # Adjusted position to account for new section
+
+    # Add footer
+    c.setFillColor(colors.lightgrey)  # Light gray footer background
+    c.rect(0, 0, width, 50, fill=1)
+
+    c.setFillColor(colors.black)
+    c.setFont("Helvetica", 8)
+    footer_text = "This report is confidential and intended for regulatory audit purposes only."
+    c.drawString(40, 20, footer_text)
+
+    # Add page number
+    c.drawString(width - 80, 20, f"Page 1 of 1")
+
+    # Save the PDF
+    c.save()
+    return output_filename
+
+if __name__ == "__main__":
+    # Create sample transaction data
+    sample_transactions = [
+        Transaction(
+            transaction_id="TR001",
+            status="Completed",
+            transaction_date=datetime.now()
+        ),
+        Transaction(
+            transaction_id="TR002",
+            status="Pending",
+            transaction_date=datetime.now()
+        )
+    ]
+
+    # Create sample PDF model
+    pdf_model = PDFModel(
+        chat_session_id="CHAT_123",
+        gtms_session_id="GTMS_456",
+        time=datetime.now(),
+        transactions=sample_transactions
+    )
+
+    # Generate PDF report
+    output_file = create_transaction_pdf(pdf_model)
+    print(f"PDF report generated successfully: {output_file}")
