@@ -1,0 +1,34 @@
+@echo off
+setlocal
+
+REM Set the folder to check for zip files
+set ZIPFOLDER=zzzz
+
+REM Set the expected zip file name
+set ZIPNAME=auto-update.zip
+
+REM Check if the folder exists
+if not exist "%ZIPFOLDER%" (
+    echo Folder "%ZIPFOLDER%" does not exist.
+    exit /b 1
+)
+
+REM Check if the specific zip file exists
+set "ZIPFILE=%ZIPFOLDER%\%ZIPNAME%"
+if not exist "%ZIPFILE%" (
+    echo Zip file "%ZIPFILE%" not found. Running chatbot directly.
+    python -mm chatbot
+    endlocal
+    exit /b 0
+)
+
+REM Found the zip file, print its name
+echo Found zip file: %ZIPFILE%
+
+REM Unzip and overwrite files using PowerShell's Expand-Archive
+powershell -Command "Expand-Archive -Path '%ZIPFILE%' -DestinationPath '.' -Force"
+
+REM Run the Python chatbot module after updating
+python -mm chatbot
+
+endlocal
